@@ -8,6 +8,9 @@ var path = require('path');
 sqlite.connect('model/database.db');
 
 app.use('/app', express.static(path.join(__dirname,'/app')));
+app.use('/bootstrap', express.static(path.join(__dirname,'/bootstrap')));
+app.use('/views', express.static(path.join(__dirname,'/views')));
+app.use('/angular2', express.static(path.join(__dirname,'/angular2')));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'))
