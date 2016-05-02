@@ -1,0 +1,12 @@
+{
+  "name": "angular2",
+  "version": "1.0.0",
+  "description": "Repositório para tutorial do Clube dos Geeks",
+  "devDependencies": {
+    "express":"*",
+    "sqlite-sync":"*"
+  },
+  "scripts":{
+  	"start":"node server && start http://localhost:3000"
+  }
+}
