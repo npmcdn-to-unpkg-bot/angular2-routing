@@ -5,7 +5,7 @@
 				<tr>
 					<th>#</th>
 					<th>Name</th>
-					<th>Phone</th>
+					<th>E-mail</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -13,7 +13,7 @@
 				<tr *ngFor="#person of persons">
 					<td>{{person.id}}</td>
 					<td>{{person.name}}</td>
-					<td>{{person.phone}}</td>
+					<td>{{person.email}}</td>
 					<td>
 						<button (click)="edit(person)" class="btn btn-xs btn-info">Edit</button>
 					</td>

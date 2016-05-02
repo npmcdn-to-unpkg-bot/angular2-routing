@@ -13,7 +13,7 @@ export class PersonComponent {
 		];
 		peopleService.people
 	     .subscribe(
-	       people => this.people = people,
+			people => this.persons = people,
 		      error => console.error('Error: '),
 	       () => console.log('Completed!')
       	);

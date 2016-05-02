@@ -1,35 +1,30 @@
 var express = require('express');
 var app = express();
-var sqlite = require('sqlite-sync');
+var router = express.Router();
 var path = require('path');
- // child process
- var exec = require('child_process').exec
 
-sqlite.connect('model/database.db');
+var todos = require('./routes/todos');
+
+// child process
+var exec = require('child_process').exec
+
 
 app.use('/app', express.static(path.join(__dirname,'/app')));
 app.use('/bootstrap', express.static(path.join(__dirname,'/bootstrap')));
 app.use('/views', express.static(path.join(__dirname,'/views')));
 app.use('/angular2', express.static(path.join(__dirname,'/angular2')));
 
+app.use('/api', todos);
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'))
 });
 
-app.get('api/persons', function(req, res){
-	res.send(sqlite.run('SELECT * FROM person'));
-});
-
-app.post('/person', function(req, res){
-
-});
-
-app.put('/person/?id', function(req, res){
-	
-});
-
-app.delete('/person/?id', function(req, res){
-	
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 app.listen(3000, function(){
